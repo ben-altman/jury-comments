@@ -1,7 +1,5 @@
 # README
 
-This is the Rails API backend of the Jury-Comments application.
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
