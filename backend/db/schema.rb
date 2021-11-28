@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_042701) do
 
   create_table "juries", force: :cascade do |t|
     t.string "name"
+    t.string "instrument"
     t.string "technique"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

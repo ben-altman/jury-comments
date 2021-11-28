@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+julian = Jury.create(name: "Julian Bream", instrument: "guitar", technique: "A major scales and arpeggios, Giuliani 120 studies")
+jascha = Jury.create(name: "Jascha Heifetz", instrument: "violin", technique: "Kreutzer etudes")
+artur = Jury.create(name: "Artur Rubinstein", instrument: "piano", technique: "Czerny studies in B-flat major")
+
+
 # bird_a = Bird.create(name: "Black-Capped Chickadee", species: "Poecile Atricapillus")
 # bird_b = Bird.create(name: "Grackle", species: "Quiscalus Quiscula")
 # bird_c = Bird.create(name: "Common Starling", species: "Sturnus Vulgaris")
