@@ -1,0 +1,2 @@
+class JuriesController < ApplicationController
+end
