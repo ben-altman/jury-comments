@@ -1,6 +1,6 @@
 class Jury < ApplicationRecord
-    validates :name, presence: :true
-    validates :instrument, presence: :true
+    validates :name, presence: true
+    validates :instrument, presence: true
 
     has_many :comments, dependent: :destroy
     has_many :repertoires, dependent: :destroy
