@@ -8,6 +8,11 @@ class CommentsController < ApplicationController
         end
     end
 
+    def index
+        comments = Jury.find_by(id: params[:jury_id]).comments
+        render json: comments
+    end
+
     private
     def comment_params
         params.require(:comment).permit(:content, :score)
