@@ -1,3 +1,3 @@
 class RepertoireSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :composer, :title
 end

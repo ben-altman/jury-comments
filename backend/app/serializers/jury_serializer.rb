@@ -1,3 +1,3 @@
 class JurySerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :instrument, :technique
 end
