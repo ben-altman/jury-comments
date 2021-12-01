@@ -7,7 +7,7 @@ class JuriesController < ApplicationController
 
     def show
         jury = Jury.find(params[:id])
-        render json: jury.to_json
+        render json: jury
     end
 
     def create
