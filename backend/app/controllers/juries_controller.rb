@@ -2,7 +2,7 @@ class JuriesController < ApplicationController
 
     def index
         juries = Jury.all
-        render json: juries.to_json(except: [:created_at, :updated_at] , include: :repertoires, incllude: :comments)
+        render json: juries
     end
 
     def show
