@@ -1,9 +1,8 @@
-class JuriesController < ApplicationController
-
-    # def index
-    #     juries = Jury.all
-    #     render json: juries
-    # end
+class Api::V1::JuriesController < ApplicationController
+    def index
+        juries = Jury.all
+        render json: juries
+    end
 
     # def show
     #     jury = Jury.find(params[:id])

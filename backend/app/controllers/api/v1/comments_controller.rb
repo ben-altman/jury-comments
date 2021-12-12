@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::V1::CommentsController < ApplicationController
 
     def create 
         jury = Jury.find_by(id: params[:jury_id])
