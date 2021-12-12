@@ -18,13 +18,13 @@ class Api::V1::JuriesController < ApplicationController
     #     render json: jury
     # end
 
-    # def create
-        
-    # end
-
     private
 
     def jury_params
-        params.require(:jury).permit(:name, :instrument, :technique)
+        params.require(:jury).permit(
+            :name,
+            :instrument,
+            :technique
+        )
     end
 end
