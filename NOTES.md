@@ -50,3 +50,6 @@ To make your page respond to the user, you'll need event listeners
 To keep your code clean, you should use JavaScript classes
 
 To organize your code, you can use multiple JavaScript files (don't forget to add <script> tags for each one!)
+
+<!-- Use this for active model serializer: -->
+https://learn.co/lessons/using-active-model-serializer
