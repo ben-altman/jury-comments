@@ -5,12 +5,12 @@ class JuriesController < ApplicationController
         render json: juries
     end
 
-    def show
-        jury = Jury.find(params[:id])
-        render json: jury
-    end
+    # def show
+    #     jury = Jury.find(params[:id])
+    #     render json: jury
+    # end
 
-    def create
+    # def create
         
-    end
+    # end
 end
