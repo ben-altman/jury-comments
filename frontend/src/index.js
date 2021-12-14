@@ -2,6 +2,10 @@ const endPoint = "http://localhost:3000/api/v1/juries"
 
 document.addEventListener('DOMContentLoaded', () => {
     getJuries()
+
+    const createJuryForm = document.querySelector("#create-jury-form")
+
+    createJuryForm.addEventListener("submit", (event) => createFormHandler(event))
 })
 
 function getJuries() {
@@ -22,6 +26,11 @@ function getJuries() {
             document.querySelector('#jury-container').innerHTML += juryMarkup
           })
     })
+}
+
+function createFormHandler(event) {
+    event.preventDefault()
+    debugger
 }
 // const BACKEND_URL = 'http://127.0.0.1:3000';
 // fetch(`${BACKEND_URL}/test`)
