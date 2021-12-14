@@ -12,7 +12,7 @@ function getJuries() {
             // double check how your data is nested in the console so you can successfully access the attributes of each individual object
             // debugger
             const juryMarkup = `
-                <div data-id=${jury.id}>
+                <div data-id=${jury.id} class="jury-card">
                     <h3>${jury.name}</h3>
                     <p>${jury.instrument}</p>
                     <button data-id=${jury.id}>edit</button>
