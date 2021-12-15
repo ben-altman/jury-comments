@@ -7,6 +7,7 @@ class Api::V1::JuriesController < ApplicationController
 
     def create
         jury = Jury.new(jury_params)
+        # byebug
         if jury.save
             render json: jury, status: :accepted
         else

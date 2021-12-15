@@ -39,19 +39,30 @@ function createFormHandler(event) {
 
 function postFetch(name, instrument, technique) {
     const bodyData = {name, instrument, technique}
-    console.log(bodyData);
-    // fetch(endPoint, {
-    //     // POST request
-    //     method: "POST",
-    //     headers: {"Content-Type": "application/json"},
-    //     body: JSON.stringify(bodyData)
-    //   })
-    //   .then(response => response.json())
-    //   .then(jury => {
-    //     console.log(jury);
-    //     const juryData = jury.data
-    //     // render JSON response
-    //     let newJury = new Jury(juryData, juryData.attributes)
-    //     document.querySelector('#jury-container').innerHTML += newJury.renderJuryCard()
-    //   })
+    fetch(baseURL + "/api/v1/juries", {
+        // POST request
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            },
+        body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(jury => {
+        const juryData = jury.data
+        // render JSON response
+        const juryMarkup = `
+        <div data-id=${jury.id} class="jury-card">
+            <h3>${jury.name}</h3>
+            <p>${jury.instrument}</p>
+            <button data-id=${jury.id}>edit</button>
+        </div>
+        </br></br>`
+        document.querySelector('#jury-container').innerHTML += juryMarkup;
+    })
+    .catch(function(error) {
+        alert("Object did not save!");
+        console.log(error.message);
+    })
 }
