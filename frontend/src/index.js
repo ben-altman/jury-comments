@@ -1,4 +1,4 @@
-const endPoint = "http://localhost:3000/api/v1/juries"
+const baseURL = "http://localhost:3000"
 
 document.addEventListener('DOMContentLoaded', () => {
     getJuries()
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function getJuries() {
-    fetch(endPoint)
+    fetch(baseURL + "/api/v1/juries")
     .then(response => response.json())
     .then(juries => {
         juries.forEach(jury => {
@@ -30,15 +30,28 @@ function getJuries() {
 
 function createFormHandler(event) {
     event.preventDefault()
-    debugger
+    const nameInput = document.querySelector('#input-name').value
+    const instrumentInput = document.querySelector('#input-instrument').value
+    const techniqueInput = document.querySelector('#input-technique').value
+    
+    postFetch(nameInput, instrumentInput, techniqueInput)
 }
-// const BACKEND_URL = 'http://127.0.0.1:3000';
-// fetch(`${BACKEND_URL}/test`)
-//     .then(response => response.json())
-//     .then(parsedResponse => console.log(parsedResponse));
 
-/*
-const
-fetch("http://127.0.0.1:3000")
-*/
-
+function postFetch(name, instrument, technique) {
+    const bodyData = {name, instrument, technique}
+    console.log(bodyData);
+    // fetch(endPoint, {
+    //     // POST request
+    //     method: "POST",
+    //     headers: {"Content-Type": "application/json"},
+    //     body: JSON.stringify(bodyData)
+    //   })
+    //   .then(response => response.json())
+    //   .then(jury => {
+    //     console.log(jury);
+    //     const juryData = jury.data
+    //     // render JSON response
+    //     let newJury = new Jury(juryData, juryData.attributes)
+    //     document.querySelector('#jury-container').innerHTML += newJury.renderJuryCard()
+    //   })
+}
