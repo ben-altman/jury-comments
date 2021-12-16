@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     createJuryForm.addEventListener("submit", (event) => createFormHandler(event))
 })
 
+function displayJuryForm() {
+    const juryForm = document.getElementById("create-jury-form");
+    const formButton = document.getElementById("new-jury");
+    formButton.addEventListener('click', (e) => {
+        juryForm.hidden = false
+    });
+}
+
 function getJuries() {
     fetch(baseURL + "/api/v1/juries")
     .then(response => response.json())
