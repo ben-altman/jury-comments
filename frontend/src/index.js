@@ -17,6 +17,12 @@ function displayJuryForm() {
     document.getElementById("create-jury-form").hidden = false
 }
 
+function hideJuryForm() {
+    form = document.getElementById("create-jury-form")
+    form.reset()
+    form.hidden = true
+}
+
 function getJuries() {
     fetch(baseURL + "/api/v1/juries")
     .then(response => response.json())
@@ -69,6 +75,7 @@ function postFetch(name, instrument, technique) {
         </div>
         </br></br>`
         document.querySelector('#jury-container').innerHTML += juryMarkup;
+        hideJuryForm()
     })
     .catch(function(error) {
         alert("Object did not save!");
