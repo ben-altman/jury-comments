@@ -4,7 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     getJuries()
     const createJuryForm = document.querySelector("#create-jury-form")
     createJuryForm.addEventListener("submit", (event) => createFormHandler(event))
+    bindEventListeners()
 })
+
+function bindEventListeners(){
+    document.getElementById("new-jury").addEventListener('click', displayJuryForm)
+}
+function displayJuryForm() {
+    // const juryForm = document.getElementById("create-jury-form");
+    // juryForm.hidden = false
+    // });
+    document.getElementById("create-jury-form").hidden = false
+}
 
 function getJuries() {
     fetch(baseURL + "/api/v1/juries")
