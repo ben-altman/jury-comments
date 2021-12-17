@@ -9,18 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function bindEventListeners(){
     document.getElementById("new-jury").addEventListener('click', displayJuryForm)
+    document.getElementById("view-all").addEventListener('click', viewAllJuries)
+    document.getElementById("")
 }
+
 function displayJuryForm() {
-    // const juryForm = document.getElementById("create-jury-form");
-    // juryForm.hidden = false
-    // });
     document.getElementById("create-jury-form").hidden = false
 }
 
 function hideJuryForm() {
     form = document.getElementById("create-jury-form")
-    form.reset()
-    form.hidden = true
+    form.reset();
+    form.hidden = true;
 }
 
 function getJuries() {
@@ -28,10 +28,8 @@ function getJuries() {
     .then(response => response.json())
     .then(juries => {
         juries.forEach(jury => {
-            // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-            // debugger
             const juryMarkup = `
-                <div data-id=${jury.id} class="jury-card">
+                <div data-id=${jury.id} class="jury-card" id="${jury.id}">
                     <h3>${jury.name}</h3>
                     <p>${jury.instrument}</p>
                     <button data-id=${jury.id}>edit</button>
@@ -81,4 +79,8 @@ function postFetch(name, instrument, technique) {
         alert("Object did not save!");
         console.log(error.message);
     })
+}
+
+function viewAllJuries() {
+    document.querySelector("jury-container").innerHTML = getJuries();
 }
