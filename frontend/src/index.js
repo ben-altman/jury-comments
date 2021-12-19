@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function bindEventListeners(){
     document.getElementById("new-jury").addEventListener('click', displayJuryForm)
     document.getElementById("view-all").addEventListener('click', viewAllJuries)
-    document.getElementById("")
+    // document.getElementById(`${data-id}`)
 }
 
 function displayJuryForm() {
@@ -29,7 +29,7 @@ function getJuries() {
     .then(juries => {
         juries.forEach(jury => {
             const juryMarkup = `
-                <div data-id=${jury.id} class="jury-card" id="${jury.id}">
+                <div data-id=${jury.id} class="jury-card" id="${jury.id}" name="${jury.slug}">
                     <h3>${jury.name}</h3>
                     <p>${jury.instrument}</p>
                     <button data-id=${jury.id}>edit</button>
