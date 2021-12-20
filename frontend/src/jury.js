@@ -26,15 +26,21 @@ class Jury {
     }
 
     addToDom() {
-        
-        let juryMarkup = `
-            <div data-id="${this.id}" class="jury-card" id="jury-${this.id}" name="${this.slug}">
-                <h3>${this.name}</h3>
-                <p>${this.instrument}</p>
-                <button data-id=${this.id}>edit</button>
-            </div>`
+        let juryMarkup = document.createElement('div')
+        juryMarkup.setAttribute("class", "jury-card")
+        juryMarkup.id = `jury-${this.id}`
+        juryMarkup.setAttribute("name", `${this.slug}`)
+        juryMarkup.innerHTML += `<h3>${this.name}</h3><p>${this.instrument}</p>`
+        document.querySelector('#jury-container').appendChild(juryMarkup)
+        console.log(juryMarkup)
+        // let juryMarkup = `
+        //     <div data-id="${this.id}" class="jury-card" id="jury-${this.id}" name="${this.slug}">
+        //         <h3>${this.name}</h3>
+        //         <p>${this.instrument}</p>
+        //         <button data-id=${this.id}>edit</button>
+        //     </div>`
 
-        document.querySelector('#jury-container').innerHTML += juryMarkup
+        // document.querySelector('#jury-container').innerHTML += juryMarkup
     }
 }
 
