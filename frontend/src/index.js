@@ -1,7 +1,7 @@
 const baseURL = "http://localhost:3000"
 
 document.addEventListener('DOMContentLoaded', () => {
-    getJuries()
+    Jury.getJuries()
     const createJuryForm = document.querySelector("#create-jury-form")
     createJuryForm.addEventListener("submit", (event) => createFormHandler(event))
     bindEventListeners()
@@ -21,24 +21,6 @@ function hideJuryForm() {
     form = document.getElementById("create-jury-form")
     form.reset();
     form.hidden = true;
-}
-
-function getJuries() {
-    fetch(baseURL + "/api/v1/juries")
-    .then(response => response.json())
-    .then(juries => {
-        juries.forEach(jury => {
-            const juryMarkup = `
-                <div data-id=${jury.id} class="jury-card" id="${jury.id}" name="${jury.slug}">
-                    <h3>${jury.name}</h3>
-                    <p>${jury.instrument}</p>
-                    <button data-id=${jury.id}>edit</button>
-                </div>
-                </br></br>`
-      
-            document.querySelector('#jury-container').innerHTML += juryMarkup
-          })
-    })
 }
 
 function createFormHandler(event) {
