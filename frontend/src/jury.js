@@ -1,5 +1,6 @@
 // const baseURL = "http://localhost:3000"
 const juriesList = document.querySelector('#jury-container')
+const juryShow = document.querySelector('#jury-show')
 
 class Jury {
     static all = []
@@ -24,13 +25,16 @@ class Jury {
         })
     }
 
-    static viewJuryCard(event) {
-        // debugger
-        console.log(event.target)
-        juriesList.style="display:none";
-        let jury = event.target.parentElement
-        let juryId = parseInt(jury.id.split('-')[1])
-        console.log(juryId);
+    static viewJuryDetails(event) {
+        if(event.target.tagName.toLowerCase() === 'button') {
+            console.log(event.target)
+            juriesList.style.display="none";
+            juryShow.style="display"
+            
+            let jury = event.target.parentElement
+            let juryId = parseInt(jury.id.split('-')[1])
+            console.log(juryId);
+        }    
     }
 
     addToDom() {
@@ -38,10 +42,10 @@ class Jury {
         juryMarkup.setAttribute("class", "jury-card")
         juryMarkup.id = `jury-${this.id}`
         juryMarkup.setAttribute("name", `${this.slug}`)
-        juryMarkup.innerHTML += `<h3>${this.name}</h3><p>${this.instrument}</p>`
+        juryMarkup.innerHTML += `<h3>${this.name}</h3><p>${this.instrument}</p><button>View Details and Comment</button>`
         document.querySelector('#jury-container').appendChild(juryMarkup)
 
-        juryMarkup.addEventListener('click', Jury.viewJuryCard)
+        juryMarkup.addEventListener('click', Jury.viewJuryDetails)
     }
 }
 

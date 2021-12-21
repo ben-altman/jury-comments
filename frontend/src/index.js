@@ -63,5 +63,5 @@ function postFetch(name, instrument, technique) {
 }
 
 function viewAllJuries() {
-    document.querySelector("jury-container").style=""
+    document.querySelector("#jury-container").style.display=""
 }
