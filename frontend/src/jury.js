@@ -19,10 +19,18 @@ class Jury {
         .then(juryData => {
             juryData.forEach(jury => {
                 let newJury = new Jury(jury)
-                console.log(newJury) 
                 newJury.addToDom()
               })
         })
+    }
+
+    static viewJuryCard(event) {
+        // debugger
+        console.log(event.target)
+        juriesList.style="display:none";
+        let jury = event.target.parentElement
+        let juryId = parseInt(jury.id.split('-')[1])
+        console.log(juryId);
     }
 
     addToDom() {
@@ -32,15 +40,8 @@ class Jury {
         juryMarkup.setAttribute("name", `${this.slug}`)
         juryMarkup.innerHTML += `<h3>${this.name}</h3><p>${this.instrument}</p>`
         document.querySelector('#jury-container').appendChild(juryMarkup)
-        console.log(juryMarkup)
-        // let juryMarkup = `
-        //     <div data-id="${this.id}" class="jury-card" id="jury-${this.id}" name="${this.slug}">
-        //         <h3>${this.name}</h3>
-        //         <p>${this.instrument}</p>
-        //         <button data-id=${this.id}>edit</button>
-        //     </div>`
 
-        // document.querySelector('#jury-container').innerHTML += juryMarkup
+        juryMarkup.addEventListener('click', Jury.viewJuryCard)
     }
 }
 

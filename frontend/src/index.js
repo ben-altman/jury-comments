@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function bindEventListeners(){
     document.getElementById("new-jury").addEventListener('click', displayJuryForm)
     document.getElementById("view-all").addEventListener('click', viewAllJuries)
-    // document.getElementById(`${data-id}`).addEventListener('click', viewJuryCard)
 }
 
 function displayJuryForm() {
@@ -64,5 +63,5 @@ function postFetch(name, instrument, technique) {
 }
 
 function viewAllJuries() {
-    document.querySelector("jury-container").innerHTML = getJuries();
+    document.querySelector("jury-container").style=""
 }
