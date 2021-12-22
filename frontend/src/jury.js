@@ -14,6 +14,7 @@ class Jury {
         Jury.all.push(this)
     }
 
+    
     static getJuries() {
         fetch(baseURL + "/api/v1/juries")
         .then(response => response.json())
@@ -35,8 +36,8 @@ class Jury {
 
     static formatJuryDisplay() {
         const main = document.querySelector("main")
-        main.innerHTML = `
-        <h2>${this.name}</h2>`
+        // main.innerHTML = `
+        // <h2>${this.name}</h2>`
     }
 
     static viewJuryDetails(event) {
@@ -47,7 +48,6 @@ class Jury {
             let juryId = parseInt(event.target.getAttribute('data-id'));
             Jury.showJury(juryId);
             Repertoire.fetchRepertoires(juryId);
-            
         }    
     }
 
