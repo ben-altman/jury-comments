@@ -55,19 +55,3 @@ To organize your code, you can use multiple JavaScript files (don't forget to ad
 https://learn.co/lessons/using-active-model-serializer
 
 
-function displayJuryForm() {
-    const form = `<form id="create-jury-form">
-    <h3>Add a New Jury</h3>
-
-    <input id='input-name' type="text" name="name" value="" placeholder="Enter student name" class="input-text">
-    <br><br>
-    <input id='input-instrument' type="text" name="instrument" value="" placeholder="Enter instrument"></input>
-    <br><br>
-    <input id='input-technique' type="text" name="technique" value="" placeholder="Enter technical studies" class="input-technique">
-    <br><br>
-    <input id="create-button" type="submit" name="submit" value="Create New Jury" class="submit">
-    <br><br>
-  </form>`
-    document.getElementById("form-container").innerHTML = form
-    
-}

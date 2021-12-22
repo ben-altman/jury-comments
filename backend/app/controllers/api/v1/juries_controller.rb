@@ -15,10 +15,10 @@ class Api::V1::JuriesController < ApplicationController
         end
     end
 
-    # def show
-    #     jury = Jury.find(params[:id])
-    #     render json: jury
-    # end
+    def show
+        jury = Jury.find(params[:id])
+        render json: jury
+    end
 
     private
 
