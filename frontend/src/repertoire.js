@@ -4,9 +4,8 @@ class Repertoire {
         this.title = title
 
         this.element = document.createElement("li")
-        this.element.id = `reperoire-${id}`
-        this.repList = document.querySelector("#repertoire-list");
-
+        this.element.id = `repertoire-${id}`
+        
     }
 
     static fetchRepertoires(id){
@@ -14,13 +13,14 @@ class Repertoire {
         .then(res => res.json())
         .then(repertoireData => {
             repertoireData.forEach(repertoire => {
-                let newRep = new Repertoire(repertoire)
-                newRep.addToDom();
+                let rep = new Repertoire(repertoire)
+                rep.addToDom();
             })
         })
     }
 
     addToDom(){
+        this.repList = document.querySelector("#repertoire-list");
         this.repList.appendChild(this.setElementHTML())
     }
 

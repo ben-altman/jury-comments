@@ -1,5 +1,5 @@
 // const baseURL = "http://localhost:3000"
-const juriesList = document.querySelector('#jury-container')
+const juriesList = document.querySelector('#juries-index')
 const juryShow = document.querySelector('#jury-show')
 
 class Jury {
@@ -34,20 +34,29 @@ class Jury {
         // })
     }
 
-    formatJuryDisplay() {
+    formatJuryShow() {
         juriesList.style.display="none";
-        juryShow.style="display"
-        const main = document.querySelector("main")
-        let juryName = document.createElement("h2")
-        juryName.innerHTML = `${this.name}`
-        juryShow.prepend(juryName, `${this.instrument}`, `${this.technique}`)
+        juryShow.style.display="block"
+        juryShow.innerHTML = `
+            <h2>${this.name}</h2>
+            <p>Instrument: ${this.instrument}</p>
+            <p>Technical studies: ${this.technique}</p>
+            <div id="repertoire-container">
+                <h3>Repertoire Presented:</h3>
+                <ul id="repertoire-list"></ul>
+            </div>
+        `
+        // const main = document.querySelector("main")
+        // let juryName = document.createElement("h2")
+        // juryName.innerHTML = `${this.name}`
+        // juryShow.prepend(juryName, `${this.instrument}`, `${this.technique}`)
         // main.innerHTML = `
         // <h2>${this.name}</h2>`
         Repertoire.fetchRepertoires(this.id);
+        
     }
 
     fetchJuryDetails(event) {
-        
         let juryId = parseInt(event.target.getAttribute('data-id'));
         // debugger
         // this.showJury(juryId);
@@ -55,8 +64,7 @@ class Jury {
         .then(response => response.json())
         .then(specs => {
             console.log(specs)
-            this.formatJuryDisplay()
-            
+            this.formatJuryShow()
         })
 
         // Repertoire.fetchRepertoires(juryId);
@@ -68,7 +76,7 @@ class Jury {
         juryMarkup.id = `jury-${this.id}`
         juryMarkup.setAttribute("name", `${this.slug}`)
         juryMarkup.innerHTML += `<h3>${this.name}</h3><p>${this.instrument}</p><button data-id=${this.id}>View Details and Comment</button>`
-        document.querySelector('#jury-container').appendChild(juryMarkup)
+        document.querySelector('#juries-index').appendChild(juryMarkup)
         // node.appendChild(juryMarkup)
         juryMarkup.addEventListener('click', (event) => this.fetchJuryDetails(event))
         // debugger

@@ -22,7 +22,7 @@ body {
     text-align: center;
 }
 
-#jury-container {
+#juries-index {
     display: flex;
     flex-wrap: wrap;
 }
