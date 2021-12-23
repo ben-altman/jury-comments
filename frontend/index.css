@@ -3,7 +3,16 @@ h1 {
     font-size: 48px;
 }
 
+header {
+    background-color: lightsalmon;
+}
+
+body {
+    background-color: lightyellow;
+}
+
 .jury-card {
+    background-color: white;
     padding: 5px;
     width: 500px;
     /* height: 200px; */

@@ -50,7 +50,7 @@ function postFetch(name, instrument, technique) {
         <div data-id=${jury.id} class="jury-card">
             <h3>${jury.name}</h3>
             <p>${jury.instrument}</p>
-            <button data-id=${jury.id}>edit</button>
+            <button data-id=${jury.id}>View Details and Comment</button>
         </div>
         </br></br>`
         document.querySelector('#jury-container').innerHTML += juryMarkup;
