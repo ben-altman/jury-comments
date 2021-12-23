@@ -41,14 +41,12 @@ class Jury {
     }
 
     static viewJuryDetails(event) {
-        if(event.target.tagName.toLowerCase() === 'button') {
-            juriesList.style.display="none";
-            juryShow.style="display"
-            
-            let juryId = parseInt(event.target.getAttribute('data-id'));
-            Jury.showJury(juryId);
-            Repertoire.fetchRepertoires(juryId);
-        }    
+        juriesList.style.display="none";
+        juryShow.style="display"
+        
+        let juryId = parseInt(event.target.getAttribute('data-id'));
+        Jury.showJury(juryId);
+        Repertoire.fetchRepertoires(juryId);
     }
 
     addToDom() {
