@@ -67,6 +67,4 @@ function viewAllJuries() {
     juriesIndex.style.display="flex"
     const juryShow = document.querySelector("#jury-show")
     juryShow.style.display="none"
-    // juriesIndex.innerHTML = ""
-    // Jury.getJuries()
 }

@@ -1,6 +1,7 @@
 // const baseURL = "http://localhost:3000"
 const juriesList = document.querySelector('#juries-index')
 const juryShow = document.querySelector('#jury-show')
+const submitBtn = document.querySelector("submit")
 
 class Jury {
     static all = []
@@ -45,14 +46,12 @@ class Jury {
                 <h3>Repertoire Presented:</h3>
                 <ul id="repertoire-list"></ul>
             </div>
-            <div id="comments-container"></div>
+            <div id="comments-container">
+                <h3>Comments:</h3>
+                <button id="new-comment">Add Comment</button>
+            </div>
         `
-        // const main = document.querySelector("main")
-        // let juryName = document.createElement("h2")
-        // juryName.innerHTML = `${this.name}`
-        // juryShow.prepend(juryName, `${this.instrument}`, `${this.technique}`)
-        // main.innerHTML = `
-        // <h2>${this.name}</h2>`
+        
         Repertoire.fetchRepertoires(this.id);
         Comment.fetchComments(this.id);
         
@@ -65,7 +64,6 @@ class Jury {
         fetch(`http://localhost:3000/api/v1/juries/${juryId}`)
         .then(response => response.json())
         .then(specs => {
-            console.log(specs)
             this.formatJuryShow()
         })
 
