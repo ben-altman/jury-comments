@@ -45,6 +45,7 @@ class Jury {
                 <h3>Repertoire Presented:</h3>
                 <ul id="repertoire-list"></ul>
             </div>
+            <div id="comments-container"></div>
         `
         // const main = document.querySelector("main")
         // let juryName = document.createElement("h2")
@@ -53,6 +54,7 @@ class Jury {
         // main.innerHTML = `
         // <h2>${this.name}</h2>`
         Repertoire.fetchRepertoires(this.id);
+        Comment.fetchComments(this.id);
         
     }
 
