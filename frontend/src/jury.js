@@ -80,5 +80,7 @@ class Jury {
         juryMarkup.addEventListener('click', (event) => this.fetchJuryDetails(event))
         // debugger
     }
+
+    test
 }
 
