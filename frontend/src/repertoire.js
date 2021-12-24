@@ -17,6 +17,18 @@ class Repertoire {
                 rep.addToDom();
             })
         })
+        this.listenForEvents()
+    }
+
+    static listenForEvents(){
+        document.querySelector('#new-repertoire').addEventListener('click', this.displayForm)
+    }
+
+    static displayForm(){
+        // debugger
+        document.querySelector('#new-repertoire').style.display="none"
+        const html = Comment.formHTML
+        console.log(Comment.formHTML)
     }
 
     addToDom(){
@@ -30,5 +42,4 @@ class Repertoire {
         `
         return this.element
     }
-
 }

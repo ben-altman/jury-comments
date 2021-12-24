@@ -1,7 +1,6 @@
 // const baseURL = "http://localhost:3000"
 const juriesList = document.querySelector('#juries-index')
 const juryShow = document.querySelector('#jury-show')
-const newComment = document.querySelector('#new-comment')
 
 class Jury {
     static all = []
@@ -45,6 +44,7 @@ class Jury {
             <div id="repertoire-container">
                 <h3>Repertoire Presented:</h3>
                 <ul id="repertoire-list"></ul>
+                <button id="new-repertoire">Add Another Piece</button>
             </div>
             <div id="comments-container">
                 <h3>Comments:</h3>
@@ -54,7 +54,6 @@ class Jury {
         
         Repertoire.fetchRepertoires(this.id);
         Comment.fetchComments(this.id);
-        
     }
 
     fetchJuryDetails(event) {

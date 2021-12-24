@@ -1,3 +1,4 @@
+
 class Comment {
     constructor({id, content, score}){
         this.id = id
@@ -18,10 +19,18 @@ class Comment {
                 com.addToDom();
             })
         })
+        this.listenForEvents()
+    }
+
+    static listenForEvents(){
+        document.querySelector('#new-comment').addEventListener('click', this.displayForm)
     }
 
     static displayForm(){
-
+        // debugger
+        document.querySelector('#new-comment').style.display="none"
+        const html = Comment.formHTML
+        console.log(Comment.formHTML)
     }
 
     static formHtml(){
@@ -58,7 +67,4 @@ class Comment {
         `
         return this.element
     }
-
-
-
 }
