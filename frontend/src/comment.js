@@ -20,9 +20,13 @@ class Comment {
         })
     }
 
+    static displayForm(){
+
+    }
+
     static formHtml(){
         return `
-        <form id="new-comment">
+        <form id="comment-form">
             <label for="content">Enter your comment: </label>
             <textarea type="textarea" name="content" id="content" rows="10"></textarea>
             <label for="score">Overall Score: </label>

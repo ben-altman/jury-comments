@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function bindEventListeners(){
     document.getElementById("new-jury").addEventListener('click', displayJuryForm)
     document.getElementById("view-all").addEventListener('click', viewAllJuries)
+    document.querySelector('#new-comment').addEventListener('click', Comment.displayForm())
+
 }
 
 function displayJuryForm() {
