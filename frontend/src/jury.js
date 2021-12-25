@@ -53,10 +53,9 @@ class Jury {
         juryMarkup.id = `jury-${this.id}`
         juryMarkup.setAttribute("name", `${this.slug}`)
         juryMarkup.innerHTML += `<h3>${this.name}</h3><p>${this.instrument}</p><button data-id=${this.id}>View Details and Comment</button>`
+        
         document.querySelector('#juries-index').appendChild(juryMarkup)
-        // node.appendChild(juryMarkup)
         juryMarkup.addEventListener('click', (event) => this.fetchJuryDetails(event))
-        // debugger
     }
 
     static postFetch(name, instrument, technique) {
@@ -74,15 +73,6 @@ class Jury {
         .then(jury => {
             let newJury = new Jury(jury)
             newJury.addToDom()
-            // render JSON response
-            // let juryMarkup = `
-            // <div data-id=${jury.id} class="jury-card">
-            //     <h3>${jury.name}</h3>
-            //     <p>${jury.instrument}</p>
-            //     <button data-id=${jury.id}>View Details and Comment</button>
-            // </div>
-            // </br></br>`
-            // document.querySelector('#jury-container').innerHTML += juryMarkup;
             hideJuryForm()
         })
         .catch(function(error) {

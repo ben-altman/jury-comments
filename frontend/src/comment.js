@@ -41,7 +41,6 @@ class Comment {
         commentForm.reset()
 
         fetch(baseURL + `/api/v1/juries/${jury_id}/comments`, {
-            // POST request
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

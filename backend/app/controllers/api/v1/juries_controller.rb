@@ -2,12 +2,10 @@ class Api::V1::JuriesController < ApplicationController
     def index
         juries = Jury.all
         render json: juries
-        # render json: JurySerializer.new(juries)
     end
 
     def create
         jury = Jury.new(jury_params)
-        # byebug
         if jury.save
             render json: jury, status: :accepted
         else
