@@ -34,39 +34,25 @@ class Jury {
         // })
     }
 
-    formatJuryShow() {
+    formatJuryShow(specs) {
         juriesList.style.display="none";
         juryShow.style.display="block"
-        juryShow.innerHTML = `
-            <h2>${this.name}</h2>
-            <p>Instrument: ${this.instrument}</p>
-            <p>Technical studies: ${this.technique}</p>
-            <div id="repertoire-container">
-                <h3>Repertoire Presented:</h3>
-                <ul id="repertoire-list"></ul>
-                <button id="new-repertoire">Add Another Piece</button>
-            </div>
-            <div id="comments-container">
-                <h3>Comments:</h3>
-                <button id="new-comment">Add Comment</button>
-            </div>
-        `
-        
+        document.querySelector("#spec-name").innerText = specs.name
+        document.querySelector("#spec-instrument").innerText = `Instrument: ${specs.instrument}`
+        document.querySelector("#spec-technique").innerText = `Technical studies: ${specs.technique}`
+
         Repertoire.fetchRepertoires(this.id);
         Comment.fetchComments(this.id);
     }
 
     fetchJuryDetails(event) {
         let juryId = parseInt(event.target.getAttribute('data-id'));
-        // debugger
-        // this.showJury(juryId);
         fetch(`http://localhost:3000/api/v1/juries/${juryId}`)
         .then(response => response.json())
         .then(specs => {
-            this.formatJuryShow()
+            this.formatJuryShow(specs)
+            console.log(specs)
         })
-
-        // Repertoire.fetchRepertoires(juryId);
     }
 
     addToDom() {
@@ -80,7 +66,5 @@ class Jury {
         juryMarkup.addEventListener('click', (event) => this.fetchJuryDetails(event))
         // debugger
     }
-
-    test
 }
 

@@ -29,15 +29,39 @@
     </div>
     <div id="juries-index"></div>
     <div id="jury-show" style="display:none">
+      <h3 id="spec-name"></h3>
+      <p id="spec-instrument"></p>
+      <p id="spec-technique"></p>
       <div id="repertoire-container">
         <h3>Repertoire Presented:</h3>
         <ul id="repertoire-list"></ul>
         <button id="new-repertoire">Add Comment</button>
+        
     </div>
-    <div id="comments-container">
+    <div id="comments-container" display="none">
         <h3>Comments:</h3>
         <button id="new-comment">Add Comment</button>
-    </div>
+        <div id="comment-form" display="none">
+          <form id="comment-form" display="none">
+            <label for="content">Enter your comment: </label>
+            <textarea type="textarea" name="content" id="content" rows="10"></textarea>
+            <label for="score">Overall Score: </label>
+            <select name="score" id="score">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <input type="submit" value="Add your Comment">
+          </form>
+        </div>  
+      </div>
     </div>
 </main>
 <script type="application/javascript" src="src/comment.js" charset="UTF-8"></script>
