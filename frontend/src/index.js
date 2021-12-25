@@ -28,38 +28,7 @@ function createFormHandler(event) {
     const instrumentInput = document.querySelector('#input-instrument').value
     const techniqueInput = document.querySelector('#input-technique').value
     
-    postFetch(nameInput, instrumentInput, techniqueInput)
-}
-
-function postFetch(name, instrument, technique) {
-    const bodyData = {name, instrument, technique}
-    fetch(baseURL + "/api/v1/juries", {
-        // POST request
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-            },
-        body: JSON.stringify(bodyData)
-    })
-    .then(response => response.json())
-    .then(jury => {
-        const juryData = jury.data
-        // render JSON response
-        const juryMarkup = `
-        <div data-id=${jury.id} class="jury-card">
-            <h3>${jury.name}</h3>
-            <p>${jury.instrument}</p>
-            <button data-id=${jury.id}>View Details and Comment</button>
-        </div>
-        </br></br>`
-        document.querySelector('#jury-container').innerHTML += juryMarkup;
-        hideJuryForm()
-    })
-    .catch(function(error) {
-        alert("Object did not save!");
-        console.log(error.message);
-    })
+    Jury.postFetch(nameInput, instrumentInput, techniqueInput)
 }
 
 function viewAllJuries() {
@@ -68,4 +37,5 @@ function viewAllJuries() {
     const juryShow = document.querySelector("#jury-show")
     juryShow.style.display="none"
     document.querySelector("#repertoire-list").innerHTML = ""
+    document.querySelector("#comments-list").innerHTML = ""
 }

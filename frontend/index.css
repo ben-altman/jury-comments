@@ -5,6 +5,7 @@ h1 {
 
 header {
     background-color: lightsalmon;
+    padding-top: 5px;
 }
 
 body {
@@ -30,4 +31,8 @@ textarea {
 #juries-index {
     display: flex;
     flex-wrap: wrap;
+}
+
+.comment-div {
+    border-bottom: 2px solid gray;
 }

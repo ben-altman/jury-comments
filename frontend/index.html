@@ -35,38 +35,45 @@
       <div id="repertoire-container">
         <h3>Repertoire Presented:</h3>
         <ul id="repertoire-list"></ul>
-        <button id="new-repertoire">Add Comment</button>
-        
+        <button id="new-repertoire">Add New Repertoire</button></br>
+        <div>
+          <form id="repertoire-form" style="display:none">
+            <label for="composer">Composer Name: </label>
+            <input type="text" name="composer" id="composer-input"></textarea>
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title-input">
+            <input type="submit" value="Add this work">
+          </form>
+        </div>
     </div>
     <div id="comments-container" display="none">
         <h3>Comments:</h3>
         <button id="new-comment">Add Comment</button>
-        <div id="comment-form" style="display:none">
-          <form>
-            <label for="content">Enter your comment: </label>
-            <textarea type="textarea" name="content" id="content" rows="10"></textarea>
-            <label for="score">Overall Score: </label>
-            <select name="score" id="score">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-            <input type="submit" value="Add your Comment">
-          </form>
-        </div>  
+        <form id="comment-form" style="display:none">
+          <label for="content">Enter your comment: </label>
+          <textarea type="textarea" name="content" id="content" rows="10"></textarea>
+          <label for="score">Overall Score: </label>
+          <select name="score" id="score">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+          </select>
+          <input type="submit" value="Add your Comment">
+        </form>
+        <div id="comments-list"></div>
       </div>
     </div>
-</main>
-<script type="application/javascript" src="src/comment.js" charset="UTF-8"></script>
-<script type="application/javascript" src="src/repertoire.js" charset="UTF-8"></script>
-<script type="application/javascript" src="src/jury.js" charset="UTF-8"></script>
-<script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+  </main>
+  <script type="application/javascript" src="src/comment.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/repertoire.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/jury.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
 </body>
 </html>

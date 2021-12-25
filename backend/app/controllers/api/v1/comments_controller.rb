@@ -1,6 +1,7 @@
 class Api::V1::CommentsController < ApplicationController
 
     def create 
+        # byebug
         jury = Jury.find_by(id: params[:jury_id])
         comment = jury.comments.build(comment_params)
         if comment.save

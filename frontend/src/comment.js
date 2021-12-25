@@ -1,4 +1,5 @@
-const commentsContainer = document.querySelector("#comments-container")
+const commentsList = document.querySelector("#comments-list")
+const commentForm = document.querySelector("#comment-form")
 
 class Comment {
     constructor({id, content, score}){
@@ -8,6 +9,7 @@ class Comment {
     
         this.element = document.createElement("div")
         this.element.id = `comment-${id}`
+        this.element.className = "comment-div"
         
     }
 
@@ -25,40 +27,44 @@ class Comment {
 
     static listenForEvents(){
         document.querySelector('#new-comment').addEventListener('click', this.displayForm)
+        commentForm.addEventListener('submit', (e) => Comment.createComment(e))
     }
 
-    static displayForm(){
-        // debugger
+    static createComment(e){
+        e.preventDefault();
+        let content = document.querySelector("#content").value
+        let score = document.querySelector("#score").value 
+        let jury_id = juryShow.getAttribute("data-id")
+        
+        let commentData = {content, score}
+        
+        commentForm.reset()
+
+        fetch(baseURL + `/api/v1/juries/${jury_id}/comments`, {
+            // POST request
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+                },
+            body: JSON.stringify(commentData)
+        })
+        .then(response => response.json())
+        .then(comment => {
+            let newCom = new Comment(comment)
+            newCom.addToDom()
+            document.querySelector('#new-comment').style.display="" 
+            commentForm.style.display="none"
+        })
+    }
+
+    static displayForm(){ 
         document.querySelector('#new-comment').style.display="none" 
-        document.querySelector('#comment-form').style.display="block"
-
-    }
-
-    static form() {
-        return 
-        `<form id="new-comment">
-        <label for="content">Enter your comment: </label>
-        <textarea type="textarea" name="content" id="content" rows="10"></textarea>
-        <label for="score">Overall Score: </label>
-        <select name="score" id="score">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <input type="submit" value="Add your Comment">
-        </form>`
+        commentForm.style.display="block"
     }
 
     addToDom(){
-        this.comList = document.querySelector("#comments-list");
-        this.comList.appendChild(this.setElementHTML())
+        commentsList.appendChild(this.setElementHTML())
     }
 
     setElementHTML() {
