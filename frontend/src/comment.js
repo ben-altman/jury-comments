@@ -30,8 +30,7 @@ class Comment {
     static displayForm(){
         // debugger
         document.querySelector('#new-comment').style.display="none" 
-        const form = this.form
-        commentsContainer.insertAdjacentHTML( 'beforeend', form);
+        document.querySelector('#comment-form').style.display="block"
 
     }
 
