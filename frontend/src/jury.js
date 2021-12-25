@@ -26,14 +26,6 @@ class Jury {
         })
     }
 
-    showJury(juryId) {
-        // fetch(`http://localhost:3000/api/v1/juries/${juryId}`)
-        // .then(response => response.json())
-        // .then(specs => {
-        //     Jury.formatJuryDisplay(specs)
-        // })
-    }
-
     formatJuryShow(specs) {
         juriesList.style.display="none";
         juryShow.style.display="block"
